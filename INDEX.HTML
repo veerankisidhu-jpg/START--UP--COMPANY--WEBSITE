@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech - Startup Company</title>
+
+    <style>
+        /* GENERAL STYLING */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #101b3b;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #54d6ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #54d6ff;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 500px;
+            background: linear-gradient(135deg, #101b3b, #243f83);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 8%;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #54d6ff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #d8e3ff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #54d6ff;
+            color: #101b3b;
+            padding: 13px 28px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            font-size: 150px;
+            text-align: center;
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: #101b3b;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: white;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            color: #101b3b;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            background: #e5f4ff;
+            padding: 60px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 100px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            background: #f5f7ff;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #101b3b;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* ACHIEVEMENTS */
+        .achievements {
+            background: #101b3b;
+            color: white;
+        }
+
+        .achievement-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 20px;
+        }
+
+        .achievement-box h2 {
+            font-size: 40px;
+            color: #54d6ff;
+        }
+
+        .achievement-box p {
+            color: #d8e3ff;
+        }
+
+        /* TEAM SECTION */
+        .team {
+            background: white;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .team-card {
+            background: #f5f7ff;
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .team-photo {
+            width: 110px;
+            height: 110px;
+            background: #d9eaff;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        .team-card h3 {
+            color: #101b3b;
+        }
+
+        .team-card p {
+            color: #666;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: #eaf2ff;
+        }
+
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #54d6ff;
+        }
+
+        .testimonial-card p {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card h4 {
+            color: #101b3b;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            color: #101b3b;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .contact-form textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #101b3b;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #243f83;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101b3b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            color: #d8e3ff;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .service-container,
+            .team-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievement-container {
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 35px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-image {
+                font-size: 100px;
+            }
+
+            .service-container,
+            .team-container,
+            .testimonial-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">NovaTech</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Building the <span>Future</span> with Technology</h1>
+
+            <p>
+                NovaTech is an innovative startup focused on creating
+                smart digital solutions that help businesses grow,
+                improve productivity, and achieve success.
+            </p>
+
+            <a href="#services" class="btn">Explore Our Services</a>
+        </div>
+
+        <div class="hero-image">
+            🚀
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Our Company</h2>
+
+            <p>
+                NovaTech is a modern technology startup established
+                with a vision to transform ideas into powerful digital
+                products.
+            </p>
+
+            <p>
+                Our team combines creativity, technology, and
+                innovation to deliver reliable solutions for
+                businesses and individuals.
+            </p>
+
+            <p>
+                We believe in continuous learning, teamwork,
+                customer satisfaction, and building technology
+                that makes a difference.
+            </p>
+
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+
+        <div class="about-image">
+            💡
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Our Products & Services</h2>
+            <p>Innovative solutions for modern businesses</p>
+        </div>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <div class="icon">💻</div>
+                <h3>Web Development</h3>
+                <p>
+                    We create responsive, modern, and user-friendly
+                    websites for businesses and startups.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📱</div>
+                <h3>App Development</h3>
+                <p>
+                    We develop mobile applications that provide
+                    excellent user experiences.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🤖</div>
+                <h3>AI Solutions</h3>
+                <p>
+                    We use artificial intelligence to automate
+                    tasks and improve business efficiency.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">☁️</div>
+                <h3>Cloud Services</h3>
+                <p>
+                    Secure and scalable cloud solutions
+                    for growing businesses.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🎨</div>
+                <h3>UI/UX Design</h3>
+                <p>
+                    Creative and attractive designs that
+                    make digital products easy to use.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📊</div>
+                <h3>Digital Marketing</h3>
+                <p>
+                    We help businesses reach more customers
+                    through effective digital strategies.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements">
+        <div class="section-title">
+            <h2 style="color:white;">Our Achievements</h2>
+            <p style="color:#d8e3ff;">Our journey of innovation and growth</p>
+        </div>
+
+        <div class="achievement-container">
+
+            <div class="achievement-box">
+                <h2>50+</h2>
+                <p>Projects Completed</p>
+            </div>
+
+            <div class="achievement-box">
+                <h2>30+</h2>
+                <p>Happy Clients</p>
+            </div>
+
+            <div class="achievement-box">
+                <h2>15+</h2>
+                <p>Team Members</p>
+            </div>
+
+            <div class="achievement-box">
+                <h2>5+</h2>
+                <p>Industry Awards</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team" id="team">
+        <div class="section-title">
+            <h2>Meet Our Team</h2>
+            <p>The creative minds behind NovaTech</p>
+        </div>
+
+        <div class="team-container">
+
+            <div class="team-card">
+                <div class="team-photo">👨‍💼</div>
+                <h3>Rahul Sharma</h3>
+                <p>Founder & CEO</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">👩‍💻</div>
+                <h3>Priya Reddy</h3>
+                <p>Chief Technology Officer</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">👨‍🎨</div>
+                <h3>Arjun Kumar</h3>
+                <p>UI/UX Designer</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>What our customers say about us</p>
+        </div>
+
+        <div class="testimonial-container">
+
+            <div class="testimonial-card">
+                <p>
+                    "NovaTech delivered an excellent website for
+                    our business. Their team was professional,
+                    creative, and supportive."
+                </p>
+                <h4>— Ananya Mehta</h4>
+                <span>Business Owner</span>
+            </div>
+
+            <div class="testimonial-card">
+                <p>
+                    "Their innovative solutions helped us improve
+                    our workflow and connect with more customers.
+                    Highly recommended!"
+                </p>
+                <h4>— Karthik Rao</h4>
+                <span>Startup Founder</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Let's build something amazing together</p>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+
+                <p>📍 Address: Vijayawada, Andhra Pradesh, India</p>
+                <p>📧 Email: info@novatech.com</p>
+                <p>📞 Phone: +91 98765 43210</p>
+
+                <p>
+                    Have an idea or project in mind?
+                    Contact us today and let's make it happen.
+                </p>
+            </div>
+
+            <form class="contact-form" action="#" method="post">
+                <input type="text" name="name"
+                       placeholder="Your Name" required>
+
+                <input type="email" name="email"
+                       placeholder="Your Email" required>
+
+                <input type="text" name="subject"
+                       placeholder="Subject" required>
+
+                <textarea name="message"
+                          placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 NovaTech. All Rights Reserved.</p>
+        <p>Innovation • Technology • Excellence</p>
+    </footer>
+
+</body>
+</html>
